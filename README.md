@@ -27,7 +27,7 @@ Each button works with its own ImmersionKit result, so the correct sentence, ima
 
 ### 1. Prepare Anki
 
-Keep Anki open and make sure **AnkiConnect** is installed and running on port **8765**.
+Keep Anki open and make sure **AnkiConnect** is installed and running.
 
 ### 2. Install the Chrome extension
 
