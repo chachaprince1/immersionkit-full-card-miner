@@ -97,61 +97,6 @@ From there you can change:
 
 Your choices are stored locally in Chrome.
 
-### Field Mapping
-
-If you use a custom Anki note type, you can choose which Anki field receives each piece of ImmersionKit information.
-
-The important card information is:
-
-* Sentence
-* Translation
-* Reading
-* Screenshot
-* Audio
-
-Source information, ID, and URL are optional.
-
-The extension suggests likely mappings automatically, but you can change them.
-
-Multiple pieces of information can also be mapped to the same Anki field. They will be added in order rather than overwriting one another.
-
-## Included Anki Card
-
-The included **ImmersionKit Full Card** note type is designed for sentence recognition.
-
-### Front
-
-The front shows:
-
-* Screenshot
-* Japanese sentence
-* Sentence audio
-* Optional **Furigana** control
-
-### Back
-
-The back keeps the original question visible and adds:
-
-* English meaning
-* Optional **Furigana** control
-* Smaller screenshot that can be clicked to expand
-* Source link
-* Collapsible card details
-
-The layout works on desktop and mobile and supports Anki's light and dark modes.
-
-The extension creates **one recognition card per mined sentence** rather than automatically creating multiple card directions.
-
-## Using Your Own Anki Templates
-
-Field mapping controls **where the information is stored**.
-
-Your Anki card template controls **what is actually displayed during review**.
-
-This means mapping information into a field does not automatically make that field appear on an existing custom card template.
-
-The extension does not overwrite customized Anki templates.
-
 ## Duplicate Protection
 
 ImmersionKit results are identified using their stable example IDs.
