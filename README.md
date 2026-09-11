@@ -101,90 +101,11 @@ work together as one Chrome extension.
    deck, choose the new-deck option and type its name in **New deck name**.
 5. Open the **Note type** dropdown. For the easiest setup, choose the bundled
    **ImmersionKit Full Card** note type.
-6. Leave **Don't show preview before adding cards** unchecked until you have
-   confirmed that your cards look right.
-7. Leave **Restore ImmersionKit's original Anki button** unchecked unless you
-   deliberately want to replace this extension's button with ImmersionKit's
-   less compatible original button.
-8. Click **Field mapping** to expand it. If you selected the bundled note type,
-   the mappings should already be filled in. If anything is blank, click
-   **Auto-map** and review the choices.
-9. Do not change **AnkiConnect URL** unless you previously configured
-   AnkiConnect to use a different address.
-10. Click **Test connection**. Wait for **Connected** to appear.
 11. Click **Save settings**.
 
 The extension includes its own **ImmersionKit Full Card** note type and recommends it by default.
 
 You can also use another Anki note type as long as it has appropriate fields for the information you want to save.
-
-## Adding a Card
-
-1. Find the exact sentence result you want on ImmersionKit.
-2. Click **Add full card to Anki** beside that result. Each button belongs to
-   its own row, so click the button next to the sentence you want.
-3. The **Preview Anki card** window opens. Review or edit the:
-
-* Japanese sentence
-* Translation
-* Reading
-* Source title
-
-4. Read the media status and confirm that the screenshot and sentence audio
-   were found.
-5. If media is missing and you still want the card, check
-   **Add anyway when media is missing**.
-6. Click **Create Anki card**.
-7. Wait for the original button to change to **View in Anki**. The card and its
-   media are now stored in Anki.
-8. Click **View in Anki** if you want Anki's Browser to open directly to that
-   card.
-
-After you have confirmed that cards look correct, use the nearby **⚙** button
-to reopen settings if you want to disable the preview.
-
-## After Adding a Card
-
-Once the card has been added, the button changes to:
-
-**View in Anki**
-
-Clicking it opens Anki's Browser and selects that exact card.
-
-The same thing happens if the extension discovers that the ImmersionKit result is already in Anki. Instead of creating a duplicate, it gives you **View in Anki**.
-
-## Settings
-
-Click the **⚙** beside an Add button to open Settings.
-
-From there you can change:
-
-* Anki deck
-* Note type
-* Field mappings
-* AnkiConnect URL
-* Card preview preference
-* Which Anki add button appears on ImmersionKit
-
-Your choices are stored locally in Chrome.
-
-## Duplicate Protection
-
-ImmersionKit results are identified using their stable example IDs.
-
-Before adding a card, the extension can check whether that result already exists in Anki.
-
-If it does, the extension opens the existing card instead of creating another copy.
-
-## If Anki Cannot Be Reached
-
-If Anki is closed or AnkiConnect is unavailable, the extension shows:
-
-**Can't reach AnkiConnect. Open Anki, then try again.**
-
-If Anki is running but taking too long to respond, it shows:
-
-**Your Anki is busy right now; try again later.**
 
 ## Privacy
 
