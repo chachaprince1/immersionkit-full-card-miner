@@ -19,6 +19,7 @@ const send = (message) => new Promise((resolve, reject) => {
 
 const clean = (text) => String(text || "").replace(/\s+/g, " ").trim();
 const isJapanese = (text) => /[\u3040-\u30ff\u3400-\u9fff]/.test(text || "");
+const normalizeForMatch = (text) => clean(text).normalize("NFKC").replace(/\s+/g, "");
 
 function sourceUrl(element, types, labels = types) {
   const candidates = [...element.querySelectorAll("audio[src], audio source[src], video[src], a[href], img[src]")];
@@ -88,11 +89,45 @@ function cardRoot(miningLink) {
   return miningLink.parentElement;
 }
 
+function rootJapaneseSentence(root) {
+  const lines = fallbackText(root);
+  return lines.find((line) => isJapanese(line) && line.length > 1) || "";
+}
+
 function markOriginalAnkiControl(link) {
   const menu = link.closest(".ui.secondary.menu");
   const responsiveMenu = menu?.closest(".mobile.or.lower.hidden");
   const cards = [cardRoot(link), responsiveMenu?.previousElementSibling, responsiveMenu?.nextElementSibling];
-  for (const card of cards) card?.querySelectorAll('[role="listbox"].ui.button.floating.labeled.dropdown.icon').forEach((control) => control.classList.add("ik-native-anki"));
+  for (const card of cards) {
+    const sentence = rootJapaneseSentence(card);
+    const expected = normalizeForMatch(sentence);
+    const controls = card?.querySelectorAll('[role="listbox"].ui.button.floating.labeled.dropdown.icon');
+    if (!controls?.length) continue;
+    for (const control of controls) {
+      control.classList.add("ik-native-anki");
+      if (!expected) continue;
+      const menuElement = control.parentElement?.querySelector(".menu") || control.nextElementSibling;
+      if (!menuElement) continue;
+      let visible = 0;
+      const emptyMessageClass = "ik-native-anki-empty";
+      for (const item of menuElement.querySelectorAll(".item")) {
+        const candidate = normalizeForMatch(item.textContent);
+        const matched = candidate.includes(expected) || expected.includes(candidate);
+        item.hidden = !matched;
+        if (matched) visible += 1;
+      }
+      const previousEmpty = menuElement.querySelector(`.${emptyMessageClass}`);
+      previousEmpty?.remove();
+      if (visible === 0) {
+        const empty = document.createElement("div");
+        empty.className = `item ${emptyMessageClass}`;
+        empty.style.display = "block";
+        empty.style.opacity = "0.7";
+        empty.textContent = "No exact word match on this card in the current list.";
+        menuElement.prepend(empty);
+      }
+    }
+  }
 }
 
 function setOriginalAnkiOnly(enabled) {
