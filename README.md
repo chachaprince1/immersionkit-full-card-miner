@@ -1,5 +1,14 @@
 # ImmersionKit Full Card Miner
 
+## Combined student release: installer-v1.0.0 and later
+
+Beginning with release **installer-v1.0.0**, this extension and the Anime
+Episode to Anki extension are distributed together through one student
+installer. The installer prepares both Chrome extensions and the private
+Yomitan helper; you do not need separate installer downloads for the two
+extensions. Download the installer from the [Anime Episode to Anki releases
+page](https://github.com/chachaprince1/anime-episode-to-anki/releases).
+
 ## Version 1.9.4: row-specific native Anki suggestions
 
 Restored ImmersionKit Anki menus now filter their page-wide suggestions to words present in the clicked result's Japanese sentence. The native handlers remain unchanged, and the extension's full-card button stays available alongside the restored native button.
